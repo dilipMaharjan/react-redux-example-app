@@ -7,21 +7,37 @@
 // ReactDOM.render(<App />, document.getElementById('root'));
 // registerServiceWorker();
 
-import { createStore } from "redux";
-const reducer = (state, action) => {
+import { createStore, applyMiddleware } from "redux";
+const initialState = {
+	result: 1,
+	lastValue: []
+};
+const reducer = (state = initialState, action) => {
 	switch (action.type) {
 		case "ADD":
-			state += action.payload;
+			state = {
+				...state,
+				result: state.result + action.payload,
+				lastValue: [...state.lastValue, action.payload]
+			};
+			state.lastValue.push(action.payload);
 			break;
 		case "SUBSTRACT":
-			state = action.payload - state;
+			state = {
+				result: state.result - action.payload,
+				lastValue: [...state.lastValue, action.payload]
+			};
 			break;
 		default:
 			break;
 	}
 	return state;
 };
-const store = createStore(reducer, 1);
+const myLogger = store => next => action => {
+	console.log("Logged Action: ", action);
+	next(action);
+};
+const store = createStore(reducer, applyMiddleware(myLogger));
 store.subscribe(() => {
 	console.log("Store updated " + store.getState());
 });
