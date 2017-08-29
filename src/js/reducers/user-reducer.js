@@ -14,6 +14,11 @@ export default function() {
 			id: 3,
 			first: "Juan",
 			last: "San"
+		},
+		{
+			id: 4,
+			first: "Max",
+			last: "San"
 		}
 	];
 }

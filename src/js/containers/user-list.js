@@ -4,10 +4,11 @@ import { connect } from "react-redux";
 import { selectUser } from "../actions/user-actions";
 class UserList extends Component {
 	createUserListItems() {
-		return this.props.users.map(user => {
+		return this.props.users.map((user, i) => {
 			return (
-				<li key={user.id} onClick={() => this.props.selectUser(user)}>
+				<li key={i} onClick={() => this.props.selectUser(user)}>
 					{user.first} {user.last}
+					{console.log(this.props.interests)}
 				</li>
 			);
 		});
@@ -19,7 +20,8 @@ class UserList extends Component {
 
 function mapStateToProps(state) {
 	return {
-		users: state.users
+		users: state.users,
+		interests: state.interests
 	};
 }
 function matchDispatchToProps(dispatch) {
