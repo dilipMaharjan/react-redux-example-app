@@ -8,7 +8,6 @@ class UserList extends Component {
 			return (
 				<li key={i} onClick={() => this.props.selectUser(user)}>
 					{user.first} {user.last}
-					{console.log(this.props.interests)}
 				</li>
 			);
 		});
