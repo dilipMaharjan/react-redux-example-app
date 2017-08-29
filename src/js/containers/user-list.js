@@ -17,12 +17,14 @@ class UserList extends Component {
 	}
 }
 
+//gets only users data from bulk of data
 function mapStateToProps(state) {
 	return {
-		users: state.users,
-		interests: state.interests
+		users: state.users
 	};
 }
+
+//hooks the event
 function matchDispatchToProps(dispatch) {
 	return bindActionCreators(
 		{

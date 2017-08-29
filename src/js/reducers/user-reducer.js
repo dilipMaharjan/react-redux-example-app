@@ -3,22 +3,26 @@ export default function() {
 		{
 			id: 1,
 			first: "Dilip",
-			last: "Maharjan"
+			last: "Maharjan",
+			age: 12
 		},
 		{
 			id: 2,
 			first: "Nick",
-			last: "San"
+			last: "San",
+			age: 12
 		},
 		{
 			id: 3,
 			first: "Juan",
-			last: "San"
+			last: "San",
+			age: 12
 		},
 		{
 			id: 4,
 			first: "Max",
-			last: "San"
+			last: "San",
+			age: 12
 		}
 	];
 }
